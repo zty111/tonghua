@@ -50,7 +50,7 @@ def get_exp(id):
     white_agent.set_collector(c2)
     
     for i in range(num):
-        print("process  {id} round {i} : ", end = '')
+        print(f"process  {id} round {i} : ", end = '')
         simulate_game(black_agent, c1, white_agent, c2)
 
     exp = combine_experience([c1, c2])
