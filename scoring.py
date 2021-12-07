@@ -16,12 +16,12 @@ def compute_game_result(game_state):
     if num_b > num_w: return Player.black
     else: return Player.white
 
-def get_black_more_num(game_state):
-    num_b, num_w = 0, 0
+def get_more_num(game_state):
+    num_my, num_op = 0, 0
     for r in range(1, 8):
         for c in range(1, 8):
             player = game_state.board._grid.get(Point(r, c))
             if player is None: continue
-            elif player == Player.black: num_b += 1
-            elif player == Player.white: num_w += 1
-    return num_b - num_w
+            elif player == game_state.next_player: num_op += 1
+            elif player == game_state.next_player: num_my += 1
+    return num_my - num_op

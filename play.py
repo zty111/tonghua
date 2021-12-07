@@ -24,7 +24,7 @@ def simulate_game(black_agent, black_collector, white_agent, white_collector):
         if show:
             game.print()
         tun += 1
-        next_move = agents[game.next_player].select_move(game, tun <= 30)
+        next_move = agents[game.next_player].select_move(game, True)
         if show:
             if next_move.is_pass: print("Pass!")
             else: print(next_move.point, next_move.direction)

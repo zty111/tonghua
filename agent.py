@@ -4,7 +4,7 @@ import time
 from multiprocessing.dummy import Pool
 from tiaocan import thread_num
 from board import Move
-from scoring import get_black_more_num
+from scoring import get_more_num
 
 
 class Branch:
@@ -70,11 +70,11 @@ class Agent():
     def greedy_move(self, game_state):
         root = self.create_node(game_state)
         move_list = list(root.moves())
-        score = get_black_more_num(game_state)
+        score = get_more_num(game_state)
         mx = -100
         for move in move_list:
             s = game_state.apply_move(move)
-            d = get_black_more_num(s) - score
+            d = get_more_num(s) - score
             if mx < d: mx, cmove = d, move
         return cmove
 

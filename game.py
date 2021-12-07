@@ -26,7 +26,7 @@ def simulate_game(black_agent, white_agent):
 
     while not game.is_over():
         game.print() 
-        if game.next_player == Player.black: next_move = agents[game.next_player].select_move(game)
+        if game.next_player == Player.black: next_move = agents[game.next_player].greedy_move(game)
         else: next_move = agents[game.next_player].select_move(game, False)
         if next_move.is_pass: print("Pass!")
         else: print(next_move.point, next_move.direction)
@@ -42,8 +42,8 @@ encoder = Encoder()
 
 model = load_model(bot_name)
 
-black_agent = My()
-white_agent = Agent(model, encoder, rounds_per_move = 160, c = 2.0)
+black_agent = Agent(model, encoder, rounds_per_move = 320, c = 2.0)
+white_agent = Agent(model, encoder, rounds_per_move = 320, c = 2.0)
 
 print()
 print("欢迎对局!")

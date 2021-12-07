@@ -18,14 +18,15 @@ if __name__ == '__main__':
             hand_pool.append(p)
         for p in hand_pool:
             p.join()
-
+        
         exp = []
         for i in range(ker_num):
             exp.append(load_experience(f"exp{i}.h5"))
+        rexp = combine_experience(exp)
         if os.path.exists('exp.h5'):
             exp.append(load_experience('exp.h5'))
         exp = combine_experience(exp)
         exp.serialize('exp.h5')
-        p = Process(target = train, args = (exp, learning_rate, 2048))
+        p = Process(target = train, args = (rexp, learning_rate, 2048))
         p.start()
         p.join()
