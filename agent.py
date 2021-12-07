@@ -124,6 +124,12 @@ class Agent():
                 for idx in range(self.encoder.num_moves())
             ])
             self.collector.record_decision(root_state_tensor, visit_counts)
+            reverse_state_tensor = self.encoder.reverse_encode(game_state)
+            visit_counts = np.array([
+                root.visit_count(self.encoder.decode_reverse_move_index(idx))
+                for idx in range(self.encoder.num_moves())
+            ])
+            self.collector.record_decision(reverse_state_tensor, visit_counts)
 
         if temperature:
             p = []
