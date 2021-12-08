@@ -6,7 +6,7 @@ import scoring
 from experience import ExperienceCollector, combine_experience
 import numpy as np
 from tensorflow.keras.optimizers import SGD
-from tiaocan import num, rand_num, mcts_num, show, bot_name
+from tiaocan import num, mcts_num, show, bot_name
 
 def simulate_game(black_agent, black_collector, white_agent, white_collector):
     print('Starting the game!')

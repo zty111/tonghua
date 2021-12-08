@@ -11,8 +11,8 @@ class Encoder:
                 color = game_state.get_color(p)
                 if color == next_player:
                     board_tensor[0, r, c] = 1
-                else:
-                    board_tensor[0, r, c] = -1
+                elif color == next_player.other:
+                    board_tensor[1, r, c] = 1
         return board_tensor
     
     def encode_move(self, move):
@@ -39,8 +39,8 @@ class Encoder:
                 color = game_state.get_color(p)
                 if color == next_player:
                     board_tensor[0, r, c] = 1
-                else:
-                    board_tensor[0, r, c] = -1
+                elif color == next_player.other:
+                    board_tensor[1, r, c] = 1
         return board_tensor
 
     def decode_reverse_move_index(self, index):
@@ -56,4 +56,4 @@ class Encoder:
         return 1177
 
     def shape(self):
-        return 1, 7, 7
+        return 2, 7, 7

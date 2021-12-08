@@ -26,7 +26,7 @@ def simulate_game(black_agent, white_agent):
 
     while not game.is_over():
         game.print() 
-        if game.next_player == Player.black: next_move = agents[game.next_player].greedy_move(game)
+        if game.next_player == Player.black: next_move = agents[game.next_player].random_move(game)
         else: next_move = agents[game.next_player].select_move(game, False)
         if next_move.is_pass: print("Pass!")
         else: print(next_move.point, next_move.direction)
