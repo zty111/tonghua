@@ -115,7 +115,7 @@ class Agent():
 
         #st = time.time()
         pool.map(select_one, range(self.num_rounds))
-        #print(time.time() - st)
+        #print(time.time() - st) # 一步计算时间
 
         if self.collector is not None:
             root_state_tensor = self.encoder.encode(game_state)
@@ -180,7 +180,7 @@ class Agent():
         priors = np.array(priors)
         values = np.array(values)
 
-        #print(time.time() - st)
+        #print(time.time() - st) # 模型一次预测时间
         priors = priors[0]
         value = values[0][0]
         move_priors = {
