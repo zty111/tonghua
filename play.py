@@ -58,6 +58,10 @@ def get_exp(id):
 
 
 def train(experience, learning_rate, batch_size):
+
+    from build import build
+    build()
+    
     model = load_model(bot_name)
 
     num_examples = experience.states.shape[0]

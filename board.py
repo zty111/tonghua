@@ -100,12 +100,6 @@ class GameState:
             self.add_player = self.next_player
             return True
         return False
-        #if self.last_move is None:
-        #    return False
-        #second_last_move = self.previous_state.last_move
-        #if second_last_move is None:
-        #    return False
-        #return self.last_move.is_pass and second_last_move.is_pass
 
     def get_color(self, point):
         player = self.board._grid.get(point)
