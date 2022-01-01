@@ -113,9 +113,9 @@ class Agent():
 
             root.branches[first_move].prior += 1
 
-        st = time.time()
+        #st = time.time()
         pool.map(select_one, range(self.num_rounds))
-        print(time.time() - st) # 一步计算时间
+        #print(time.time() - st) # 一步计算时间
 
         if self.collector is not None:
             root_state_tensor = self.encoder.encode(game_state)
